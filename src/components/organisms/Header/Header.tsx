@@ -17,4 +17,4 @@ const Header: React.FC<IHeaderProps> = ({children}) => {
   )
 }
 
-export default Header
+export default Header  

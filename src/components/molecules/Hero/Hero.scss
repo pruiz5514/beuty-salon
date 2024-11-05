@@ -13,21 +13,39 @@
     align-items: center;
     text-align: center;
     color: $text-gray;
+    padding: 0 30px;
 
     .hero-h4{
-        font-size: 42px;
+        font-size: 32px;
     }
 
     .hero-h1{
-        font-size: 106px;
+        font-size: 54px;
         font-weight: bold;
     }
 
     .hero-p{
         max-width: 850px;
-        font-size: 24px;
+        font-size: 18px;
         text-align: center;
     }
 }
 
-// https://png.pngtree.com/background/20230519/original/pngtree-barbershop-picture-image_2651923.jpg
+@media (min-width: 1000px){
+    .hero{
+        .hero-h4{
+            font-size: 42px;
+        }
+    
+        .hero-h1{
+            font-size: 106px;
+            font-weight: bold;
+        }
+    
+        .hero-p{
+            max-width: 850px;
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+}

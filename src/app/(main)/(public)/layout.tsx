@@ -7,7 +7,7 @@ export default function PrivateLayout(
     <>
         <Header>
             <li><a href="/">Inicio</a></li>
-            <li><a href="./login">Inciar sesión</a></li>
+            <li><a href="./login">Iniciar sesión</a></li>
         </Header>
         {children}
     </>

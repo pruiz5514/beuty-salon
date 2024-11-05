@@ -1,0 +1,40 @@
+.burger-container{
+    .burger-button{
+        font-size: 36px;
+    }
+}
+
+.aside_desktop-container{
+    display: none;
+}
+
+.aside-container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    left: 0;
+
+    .background-aside{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: calc(100% - 260px);
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+@media (min-width: 1200px){
+    .burger-container{
+        display: none;
+    }
+    .aside-container{
+        display: none;
+    }
+
+    .aside_desktop-container{
+        display: block;
+    }
+}

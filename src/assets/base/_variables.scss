@@ -1,14 +1,14 @@
-$white: #ffffff;
-$black: #000000;
-
 $dark-blue: #0c1122;
 $bg-button: #66b6fa;
+$bg-cream: #fefbed;
 
 // Font size
 $text-gray:#b3b3b3;
 $text-error: #FF4C4C;
 
 // Font color 
+$white: #ffffff;
+$black: #000000;
 
 //border-color
 $border-input-color: rgb(229, 231, 235);
@@ -16,3 +16,5 @@ $border-input-color: rgb(229, 231, 235);
 // border radius
 $border-container : 12px;
 $border-input: 8px;
+
+$box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);;

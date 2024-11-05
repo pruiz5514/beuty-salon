@@ -1,0 +1,36 @@
+.private-layout{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $bg-cream;
+    display: flex;
+    flex-direction: column;
+
+    .aside_container-layout{
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+
+    .private-container{
+        width: 90%;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+}
+
+@media (min-width: 1200px){
+    .private-layout{
+        display: flex;
+        flex-direction: row;
+
+        .aside_container-layout{
+            padding-top: 0;
+            width: 260px;
+            height: 100vh;
+        }
+        .private-container{
+            width: calc(100% - 260px);
+            padding: 40px;
+        }
+    }
+}

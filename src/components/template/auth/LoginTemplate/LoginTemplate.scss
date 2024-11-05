@@ -1,8 +1,10 @@
 .login_template-container{
     width: 100%;
     min-height: 100vh;
-    padding: 130px 30px 40px 30px;
+    padding: 0 30px;
     background-color: $dark-blue;
+    display: flex;
+    align-items: center;
 
 
     .auth_form-container{
@@ -17,5 +19,12 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+@media(min-width: 500px){
+    .login_template-container{
+        padding: 130px 30px 40px 30px;
+        display: block;
     }
 }
