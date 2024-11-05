@@ -1,5 +1,6 @@
 const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
 
+
 export class HttpClient {
   private baseUrl: string;
 
@@ -52,6 +53,8 @@ export class HttpClient {
   }
 
   private async getHeader() {
+
+    
     return {
       "Content-Type": "application/json",
     };

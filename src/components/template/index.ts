@@ -1,1 +1,2 @@
-export * from './auth/LoginTemplate';
+export * from './auth/LoginTemplate/LoginTemplate';
+export * from './MainPage';

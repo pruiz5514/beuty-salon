@@ -1,6 +1,8 @@
 "use client";
 
+import './LoginForm.scss';
 import { ErrorResponse, FieldError, ILoginRequest } from '@/app/core/application/dto'
+import Button from '@/components/atoms/Button/Button';
 import FormFiled from '@/components/molecules/common/FormField/FormFiled'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { signIn } from 'next-auth/react';
@@ -75,8 +77,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleLogin)}>
-        <h2>Iniciar sesión</h2>
+    <form onSubmit={handleSubmit(handleLogin)} className='auth-form'>
         <FormFiled<ILoginRequest>
             control = {control}
             type='email'
@@ -95,9 +96,9 @@ export const LoginForm = () => {
             placeholder='Ingresa tu contraseña'
         />
 
-        <button type='submit'>
+        <Button type='submit'>
             Iniciar sesión
-        </button>
+        </Button>
     </form>
   )
 }

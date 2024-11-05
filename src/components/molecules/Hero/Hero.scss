@@ -1,0 +1,33 @@
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+    url('https://wallpapers.com/images/hd/barber-shop-background-0t025mani5appwsc.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $text-gray;
+
+    .hero-h4{
+        font-size: 42px;
+    }
+
+    .hero-h1{
+        font-size: 106px;
+        font-weight: bold;
+    }
+
+    .hero-p{
+        max-width: 850px;
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+// https://png.pngtree.com/background/20230519/original/pngtree-barbershop-picture-image_2651923.jpg

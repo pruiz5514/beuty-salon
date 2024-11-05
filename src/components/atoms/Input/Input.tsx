@@ -1,3 +1,5 @@
+import './Input.scss'
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     placeholder ?: string;
     type?: string; 
@@ -13,14 +15,15 @@ const Input = ({
     ...props
 }: InputProps) => {
   return (
-    <div>
+    <div className='input-container'>
         <input 
             type={type}
             name= {name}
             placeholder={placeholder}
             {...props}
+            className='input'
         />
-        {error && <p>{error}</p>}
+        {error && <p className='input-error'>{error}</p>}
     </div>
   )
 }

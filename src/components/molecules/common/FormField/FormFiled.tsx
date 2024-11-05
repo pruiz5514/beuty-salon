@@ -1,5 +1,6 @@
 'use client';
 
+import './FormField.scss'
 import Input from "@/components/atoms/Input/Input";
 import { Control, Controller, FieldError, FieldValues, Path } from "react-hook-form";
 
@@ -23,7 +24,7 @@ const FormFiled = <T extends FieldValues>({
   placeholder,
 }: IPropsFormField<T>) => {
   return (
-    <div>
+    <div className='form_field-container'>
         <label htmlFor={id || label.toLowerCase()}> {label}</label>
 
         <Controller
