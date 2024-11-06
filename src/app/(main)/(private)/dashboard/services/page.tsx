@@ -5,12 +5,22 @@ import FeatureTemplate from "@/components/template/private/FeatureTemplate/Featu
 
 const useServicesService = new ServicesService();
 
-export default async function ServicePage() {
-  const services = await useServicesService.findAllServices('services?page=1&size=10');
-  
+interface IProps {
+  searchParams:{
+    page: string;
+    size: string
+  }
+}
+
+export default async function ServicePage({searchParams}:IProps) {
+  const page = searchParams.page ? parseInt(searchParams.page) : 1;
+  const size = searchParams.size ? parseInt(searchParams.size) : 8;
+
+  const services = await useServicesService.findAllServices(`services?page=${page}&size=${size}`);
+
   return (
     <main>
-      <FeatureTemplate>
+      <FeatureTemplate data={services}>
         <ServicesTable services={services.content}/>
       </FeatureTemplate>
     </main>

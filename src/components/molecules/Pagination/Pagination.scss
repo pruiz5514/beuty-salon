@@ -1,0 +1,15 @@
+.pagination-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .pagination-button{
+        background-color: $bg-button-pagination;
+    }
+
+    .hidden{
+        display: none;
+    }
+}
