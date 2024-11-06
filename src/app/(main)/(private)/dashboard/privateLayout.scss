@@ -24,13 +24,14 @@
         flex-direction: row;
 
         .aside_container-layout{
+            position: fixed;
             padding-top: 0;
             width: 260px;
             height: 100vh;
         }
         .private-container{
-            width: calc(100% - 260px);
-            padding: 40px;
+            padding: 40px 40px 40px 300px;
+            width: 100%;
         }
     }
 }
