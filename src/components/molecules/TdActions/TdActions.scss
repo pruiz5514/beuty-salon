@@ -1,0 +1,16 @@
+.td_action-container{
+    display: flex;
+    gap: 15px;
+
+    .edit-button{
+        background-color: $bg-button;
+        color: $white;
+        font-weight: bold;
+    }
+
+    .delete-button{
+        background-color: $text-error;
+        font-weight: bold;
+        color: $white;
+    }
+}

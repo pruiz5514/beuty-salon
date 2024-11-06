@@ -1,10 +1,11 @@
 .aside{
     width: 260px;
     height: 100vh;
-    background-color: $white;
+    background-color: $dark-blue;
     position: absolute;
     padding: 40px 30px;
     box-shadow: $box-shadow;
+    color: $white;
 
     .close-aside{
         position: absolute;

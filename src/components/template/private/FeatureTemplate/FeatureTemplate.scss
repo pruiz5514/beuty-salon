@@ -1,0 +1,11 @@
+.feature_template-section{
+    width: 100%;
+    height: auto;
+    background-color: $white;
+    border-radius: $border-container;
+    box-shadow: $box-shadow;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

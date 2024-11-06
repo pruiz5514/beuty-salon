@@ -1,4 +1,8 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+
 const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
+
 
 
 export class HttpClient {
@@ -53,11 +57,18 @@ export class HttpClient {
   }
 
   private async getHeader() {
+    const session = await getServerSession(authOptions);
 
-    
-    return {
-      "Content-Type": "application/json",
+    const headers:HeadersInit =  {
+      "Content-Type" : "application/json"
     };
+
+    if(session && session.user?.token){
+      headers['Authorization'] = `Bearer ${session.user?.token}`
+    }
+
+    return headers
+    
   }
 
   private async handleResponse(response: Response) {

@@ -6,7 +6,7 @@ const LoginTemplate = () => {
   return (
     <div className='login_template-container'>
       <div className='auth_form-container'>
-        <H1 classname='h1-form'>Inicia sesión en tu cuenta</H1>
+        <H1>Inicia sesión en tu cuenta</H1>
         <LoginForm/>
       </div>
       
