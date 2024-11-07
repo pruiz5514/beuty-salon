@@ -9,7 +9,7 @@ interface ModalProps{
 }
 
 const Modal:React.FC<ModalProps> = ({children}) => {
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className='modal-background'>

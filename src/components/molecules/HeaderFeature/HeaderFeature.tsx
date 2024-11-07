@@ -5,6 +5,7 @@ import './HeaderFeature.scss'
 import Button from '@/components/atoms/Button/Button'
 import { openModal } from '@/redux/features/modalSlice';
 import Modal from '@/components/atoms/Modal/Modal';
+import ServicesForm from '@/components/organisms/Forms/ServicesForm';
 
 const HeaderFeature = () => {
   const modalState = useAppSelector(state => state.modalReducer.isOpen);
@@ -19,7 +20,7 @@ const HeaderFeature = () => {
 
         {modalState && 
           <Modal>
-              Oeee
+              <ServicesForm/>
           </Modal>
         }
     </div>

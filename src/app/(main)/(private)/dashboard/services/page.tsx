@@ -1,4 +1,3 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import { ServicesService } from "@/app/infrastructure/services/services.service";
 import ServicesTable from "@/components/organisms/Tables/ServicesTable";
 import FeatureTemplate from "@/components/template/private/FeatureTemplate/FeatureTemplate"

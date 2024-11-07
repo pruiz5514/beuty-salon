@@ -1,5 +1,8 @@
 import { IServicesResponse } from "@/app/core/application/dto/dashboard/services/get-services-response.dto";
 import { HttpClient } from "../utils";
+import { IServicesPost } from "@/app/core/application/dto/dashboard/services/post-services.dto";
+import { IServicesPostResponse } from "@/app/core/application/dto/dashboard/services/post-services-response.dto";
+import { errorAlert } from "../utils/alerts";
 
 export class ServicesService{
     private httpClient: HttpClient;
@@ -14,7 +17,18 @@ export class ServicesService{
             return response
         }catch(error){
             console.log(error);
+            errorAlert("No se pudo crear el servicio, intente luego")
             throw error;
+        }
+    }
+
+    async postSevice(url:string, body:IServicesPost){
+        try{
+            const newService = await this.httpClient.post<IServicesPostResponse, IServicesPost>(url,body);
+            return newService;
+        }catch(error){
+            console.log(error);
+            throw error
         }
     }
 }

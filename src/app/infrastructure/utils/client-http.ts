@@ -2,14 +2,15 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
 const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
-
-
+const backUrl = 'http://localhost:30001/api'
 
 export class HttpClient {
   private baseUrl: string;
+  private backUrl: string;
 
   constructor(baseUrl?: string) {
     this.baseUrl = baseUrl || defaultBaseUrl;
+    this.backUrl = backUrl
   }
 
   async get<T>(url: string): Promise<T> {
@@ -24,7 +25,6 @@ export class HttpClient {
   }
 
   async delete<T>(url: string): Promise<T> {
-    console.log("DESDE DELETE")
     const headers = await this.getHeader();
     const response = await fetch(`${this.baseUrl}/${url}`, {
       headers: headers,
@@ -34,10 +34,8 @@ export class HttpClient {
     return this.handleResponse(response);
   }
 
-  async post<T, B>(url: string, body: B): Promise<T> {
-    const headers = await this.getHeader();
-    const response = await fetch(`${this.baseUrl}/${url}`, {
-      headers: headers,
+  async post<T, B>(url:string, body: B): Promise<T> {
+    const response = await fetch(`${this.backUrl}/${url}`, {
       method: "POST",
       body: JSON.stringify(body),
     });
@@ -56,7 +54,7 @@ export class HttpClient {
     return this.handleResponse(response)
   }
 
-  private async getHeader() {
+  async getHeader() {
     const session = await getServerSession(authOptions);
 
     const headers:HeadersInit =  {
