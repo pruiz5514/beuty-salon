@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quicksand} from "next/font/google";
 import { AuthProvider } from "./auth-provider";
 import './global.scss'
+import { Providers } from "@/redux/provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +22,9 @@ export default function RootLayout({
         className={quicksand.className}
       >
         <AuthProvider>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </AuthProvider>
       </body>
     </html>

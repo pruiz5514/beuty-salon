@@ -1,13 +1,27 @@
+'use client';
+
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import './HeaderFeature.scss'
 import Button from '@/components/atoms/Button/Button'
+import { openModal } from '@/redux/features/modalSlice';
+import Modal from '@/components/atoms/Modal/Modal';
 
 const HeaderFeature = () => {
+  const modalState = useAppSelector(state => state.modalReducer.isOpen);
+  const dispatch = useAppDispatch();
+
+  console.log(modalState);
   return (
     <div className='header_feature-container'>
         <div className='header_feature_button-container'>
-            <Button>Agregar servicio</Button>
+            <Button onClick={()=>dispatch(openModal())}>Agregar servicio</Button>
         </div>
-        
+
+        {modalState && 
+          <Modal>
+              Oeee
+          </Modal>
+        }
     </div>
   )
 }

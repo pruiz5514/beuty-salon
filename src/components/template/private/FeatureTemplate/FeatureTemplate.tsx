@@ -3,6 +3,7 @@ import './FeatureTemplate.scss'
 import HeaderFeature from '@/components/molecules/HeaderFeature/HeaderFeature'
 import Pagination from '@/components/molecules/Pagination/Pagination';
 import { IServicesResponse } from '@/app/core/application/dto/dashboard/services/get-services-response.dto';
+import Modal from '@/components/atoms/Modal/Modal';
 
 interface IFeatureTemplateProps{
   children: React.ReactNode;
