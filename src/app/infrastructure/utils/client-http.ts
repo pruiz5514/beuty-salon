@@ -41,9 +41,7 @@ export class HttpClient {
   }
 
   async put <T, B> (url:string, body:B): Promise<T>{
-    const headers = await this.getHeader();
-    const response = await fetch(`${this.baseUrl}/${url}`,{
-        headers: headers,
+    const response = await fetch(`${this.backUrl}/${url}`,{
         method:"PUT",
         body: JSON.stringify(body)
     });

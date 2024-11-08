@@ -16,7 +16,7 @@ export default async function ServicePage({searchParams}:IProps) {
   const size = searchParams.size ? parseInt(searchParams.size) : 8;
 
   const services = await useServicesService.findAllServices(`services?page=${page}&size=${size}`);
-
+  
   return (
     <main>
       <FeatureTemplate data={services}>

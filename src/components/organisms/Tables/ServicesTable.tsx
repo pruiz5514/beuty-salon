@@ -12,8 +12,8 @@ interface IServicesTable{
     services: IServicesContent[]
 }
 
-const ServicesTable:React.FC<IServicesTable> = ({services}) => {
-    console.log(services);
+const ServicesTable:React.FC<IServicesTable> = ({services}) => { 
+    
     
   return (
     <TableContaier>
@@ -34,7 +34,7 @@ const ServicesTable:React.FC<IServicesTable> = ({services}) => {
                         <Td>{service.name}</Td>
                         <Td>{service.description}</Td>
                         <Td>$ {service.price}</Td>
-                        <Td> <TdActions dataId={service.id}/> </Td>
+                        <Td> <TdActions data={service}/> </Td>
                     </Tr>
                 ))}
             </Tbody>
