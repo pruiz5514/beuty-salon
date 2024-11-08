@@ -2,7 +2,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
 const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
-const backUrl = 'http://localhost:30001/api'
+const backUrl = 'http://localhost:3000/api'
 
 export class HttpClient {
   private baseUrl: string;
@@ -24,14 +24,11 @@ export class HttpClient {
     return this.handleResponse(response);
   }
 
-  async delete<T>(url: string): Promise<T> {
-    const headers = await this.getHeader();
-    const response = await fetch(`${this.baseUrl}/${url}`, {
-      headers: headers,
+  async delete<T>(url: string) {
+    const response = await fetch(`${this.backUrl}/${url}`, {
       method: "DELETE",
     });
 
-    return this.handleResponse(response);
   }
 
   async post<T, B>(url:string, body: B): Promise<T> {

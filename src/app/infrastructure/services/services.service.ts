@@ -2,7 +2,7 @@ import { IServicesResponse } from "@/app/core/application/dto/dashboard/services
 import { HttpClient } from "../utils";
 import { IServicesPost } from "@/app/core/application/dto/dashboard/services/post-services.dto";
 import { IServicesPostResponse } from "@/app/core/application/dto/dashboard/services/post-services-response.dto";
-import { errorAlert } from "../utils/alerts";
+import { errorAlert, successAlert } from "../utils/alerts";
 
 export class ServicesService{
     private httpClient: HttpClient;
@@ -29,6 +29,18 @@ export class ServicesService{
         }catch(error){
             console.log(error);
             throw error
+        }
+    }
+
+    async deleteService(url:string,id:string){
+        try{
+            const serviceToDelete = await this.httpClient.delete(`${url}/${id}`);
+            successAlert('Elminado exitosamente');
+            return serviceToDelete;
+        } catch(error){
+            console.log(error);
+            errorAlert('No se pudo eleminar')
+            throw error;
         }
     }
 }

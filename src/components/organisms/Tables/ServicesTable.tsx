@@ -34,7 +34,7 @@ const ServicesTable:React.FC<IServicesTable> = ({services}) => {
                         <Td>{service.name}</Td>
                         <Td>{service.description}</Td>
                         <Td>$ {service.price}</Td>
-                        <Td> <TdActions/> </Td>
+                        <Td> <TdActions dataId={service.id}/> </Td>
                     </Tr>
                 ))}
             </Tbody>
