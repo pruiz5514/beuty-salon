@@ -7,15 +7,17 @@ const useServicesService = new ServicesService();
 interface IProps {
   searchParams:{
     page: string;
-    size: string
+    size: string;
+    order?: string
   }
 }
 
 export default async function ServicePage({searchParams}:IProps) {
   const page = searchParams.page ? parseInt(searchParams.page) : 1;
   const size = searchParams.size ? parseInt(searchParams.size) : 8;
+  const order = searchParams.order || ''
 
-  const services = await useServicesService.findAllServices(`services?page=${page}&size=${size}`);
+  const services = await useServicesService.findAllServices(`services?page=${page}&size=${size}`,{order});
   
   return (
     <main>

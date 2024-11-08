@@ -11,9 +11,9 @@ export class ServicesService{
         this.httpClient = new HttpClient();
     }
 
-    async findAllServices(url:string){
+    async findAllServices(url:string, searchParams?: { order: string }){
         try{
-            const response = this.httpClient.get<IServicesResponse>(url);
+            const response = this.httpClient.get<IServicesResponse>(url,searchParams);
             return response
         }catch(error){
             console.log(error);

@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
 const backUrl = 'http://localhost:3000/api'
 
+
 export class HttpClient {
   private baseUrl: string;
   private backUrl: string;
@@ -13,8 +14,8 @@ export class HttpClient {
     this.backUrl = backUrl
   }
 
-  async get<T>(url: string): Promise<T> {
-    const headers = await this.getHeader();
+  async get<T>(url: string, searchParams?: { order: string }): Promise<T> {
+    const headers = await this.getHeader({searchParams});
     const response = await fetch(`${this.baseUrl}/${url}`, {
       headers: headers,
       method: "GET",
@@ -49,10 +50,11 @@ export class HttpClient {
     return this.handleResponse(response)
   }
 
-  async getHeader() {
+  async getHeader({searchParams}: {searchParams?: {order:string}}) {
     const session = await getServerSession(authOptions);
 
-    const headers:HeadersInit =  {
+
+    const headers:HeadersInit = {
       "Content-Type" : "application/json"
     };
 
@@ -60,6 +62,16 @@ export class HttpClient {
       headers['Authorization'] = `Bearer ${session.user?.token}`
     }
 
+    if(searchParams){
+      const order = searchParams.order;
+      if(order){
+        headers['sortType'] = order
+      }
+    }
+    
+
+    console.log(headers);
+    
     return headers
     
   }
