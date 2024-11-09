@@ -2,16 +2,12 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
 const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
-const backUrl = 'http://localhost:3000/api'
-
 
 export class HttpClient {
   private baseUrl: string;
-  private backUrl: string;
 
   constructor(baseUrl?: string) {
     this.baseUrl = baseUrl || defaultBaseUrl;
-    this.backUrl = backUrl
   }
 
   async get<T>(url: string, searchParams?: { order: string }): Promise<T> {
@@ -26,15 +22,18 @@ export class HttpClient {
   }
 
   async delete<T>(url: string) {
-    const response = await fetch(`${this.backUrl}/${url}`, {
+    const response = await fetch(`${this.baseUrl}/${url}`, {
       method: "DELETE",
     });
 
   }
 
   async post<T, B>(url:string, body: B): Promise<T> {
-    const response = await fetch(`${this.backUrl}/${url}`, {
+    const response = await fetch(`${this.baseUrl}/${url}`, {
       method: "POST",
+      headers: {
+        'Content-Type' : 'Application/json'
+      },
       body: JSON.stringify(body),
     });
 
@@ -42,7 +41,7 @@ export class HttpClient {
   }
 
   async put <T, B> (url:string, body:B): Promise<T>{
-    const response = await fetch(`${this.backUrl}/${url}`,{
+    const response = await fetch(`${this.baseUrl}/${url}`,{
         method:"PUT",
         body: JSON.stringify(body)
     });
@@ -50,7 +49,7 @@ export class HttpClient {
     return this.handleResponse(response)
   }
 
-  async getHeader({searchParams}: {searchParams?: {order:string}}) {
+  async getHeader({searchParams}: {searchParams?: {order:string}}={}) {
     const session = await getServerSession(authOptions);
 
 

@@ -7,8 +7,8 @@ import { errorAlert, successAlert } from "../utils/alerts";
 export class ServicesService{
     private httpClient: HttpClient;
 
-    constructor(){
-        this.httpClient = new HttpClient();
+    constructor(baseUrl?: string){
+        this.httpClient = new HttpClient(baseUrl);
     }
 
     async findAllServices(url:string, searchParams?: { order: string }){

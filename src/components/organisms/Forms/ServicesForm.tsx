@@ -23,7 +23,7 @@ interface IServicesForm{
   propFunction: ()=>void
 }
 
-const useServicesService = new ServicesService()
+const useServicesService = new ServicesService('http://localhost:3000/api')
  
 const servicesSchema = yup.object()
     .shape({

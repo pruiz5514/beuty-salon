@@ -17,7 +17,7 @@ interface ITdActions{
   data: IServicesContent 
 }
 
-const useServicesService = new ServicesService();
+const useServicesService = new ServicesService('http://localhost:3000/api');
 
 const TdActions: React.FC<ITdActions> = ({data}) => {
   const router = useRouter();
