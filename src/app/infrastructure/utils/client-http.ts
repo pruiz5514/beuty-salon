@@ -1,12 +1,13 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
-const defaultBaseUrl = "https://beautysalongates-production.up.railway.app/api/v1";
+const defaultBaseUrl = process.env.NEXT_PUBLIC_BACK_HOST ?? '';
 
 export class HttpClient {
   private baseUrl: string;
 
   constructor(baseUrl?: string) {
+    if(defaultBaseUrl){}
     this.baseUrl = baseUrl || defaultBaseUrl;
   }
 

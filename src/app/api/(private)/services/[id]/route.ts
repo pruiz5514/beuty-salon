@@ -23,7 +23,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
 
     const headers = await useHttpClient.getHeader();
 
-    const response = await fetch(`${url}/${id}`, {
+    await fetch(`${url}/${id}`, {
         method: 'DELETE',
         headers: headers
     });

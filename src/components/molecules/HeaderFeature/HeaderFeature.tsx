@@ -1,18 +1,20 @@
 'use client';
 
-// import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import './HeaderFeature.scss'
 import Button from '@/components/atoms/Button/Button'
-import { openModal } from '@/redux/features/modalSlice';
 import Modal from '@/components/atoms/Modal/Modal';
 import ServicesForm from '@/components/organisms/Forms/ServicesForm';
 import { useState } from 'react';
 import Select from '@/components/atoms/Select/Select';
 import { useRouter, useSearchParams } from 'next/navigation';
+import CLientsForm from '@/components/organisms/Forms/ClientsForm';
 
-const HeaderFeature = () => {
-  // const modalState = useAppSelector(state => state.modalReducer.isOpen);
-  // const dispatch = useAppDispatch();
+
+interface IHeaderFeature {
+  feature: string;
+}
+
+const HeaderFeature: React.FC<IHeaderFeature> = ({feature}) => {
 
   const [modal, setModal] = useState(false);
 
@@ -28,6 +30,25 @@ const HeaderFeature = () => {
 
     router.push(`?${params.toString()}`)
   }
+
+
+  const renderForm = () => {
+    if(feature === 'services'){
+      return {
+        buttonFeature : 'servicio',
+        form: <ServicesForm action='add' propFunction={handleCloseModal}/>
+      }
+    } else if (feature === 'clients'){
+      return {
+        buttonFeature : 'cliente',
+        form: <CLientsForm action='add' propFunction={handleCloseModal}/>
+      }
+    }
+
+    return { buttonFeature: '', form: null }
+  }
+
+  const {form, buttonFeature} = renderForm();
   
   return (
     <div className='header_feature-container'>
@@ -39,12 +60,12 @@ const HeaderFeature = () => {
           </Select>
         </div>
         <div className='header_feature_button-container'>
-            <Button onClick={()=> setModal(true)}>Agregar servicio</Button>
+            <Button onClick={()=> setModal(true)}>Agregar {buttonFeature}</Button>
         </div>
 
         {modal && 
           <Modal propFunction={handleCloseModal}>
-              <ServicesForm action='add' propFunction={handleCloseModal}/>
+              {form}
           </Modal>
         }
     </div>

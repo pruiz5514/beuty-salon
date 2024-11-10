@@ -23,7 +23,7 @@ interface IServicesForm{
   propFunction: ()=>void
 }
 
-const useServicesService = new ServicesService('http://localhost:3000/api')
+const useServicesService = new ServicesService(`${process.env.NEXT_PUBLIC_FRONT_HOST}/api`)
  
 const servicesSchema = yup.object()
     .shape({
@@ -97,7 +97,7 @@ const ServicesForm:React.FC<IServicesForm> = ({action, serviceSelected, propFunc
             error={errors.price}
             control={control}
         />
-        <Button type='submit'>Publicar servicio</Button>
+        <Button type='submit'>{action === 'add' ? 'Publicar' : 'Editar'} servicio</Button>
     </Form>
     
   )

@@ -1,19 +1,18 @@
-import { IServicesResponse } from "@/app/core/application/dto/dashboard/services/get-services-response.dto";
+import { IClientsResponse } from "@/app/core/application/dto/dashboard/clients/get-clients-response.dto";
 import { HttpClient } from "../utils";
-import { IServicesPost } from "@/app/core/application/dto/dashboard/services/post-services.dto";
-import { IServicesPostResponse } from "@/app/core/application/dto/dashboard/services/post-services-response.dto";
 import { errorAlert, successAlert } from "../utils/alerts";
+import { IClientsPostResponse } from "@/app/core/application/dto/dashboard/clients/post-clients-response.dto";
 
-export class ServicesService{
+export class ClientsService{
     private httpClient: HttpClient;
 
     constructor(baseUrl?: string){
         this.httpClient = new HttpClient(baseUrl);
     }
 
-    async findAllServices(url:string, searchParams?: { order: string }){
+    async findAllClients(url:string, searchParams?: { order: string }){
         try{
-            const response = this.httpClient.get<IServicesResponse>(url,searchParams);
+            const response = this.httpClient.get<IClientsResponse>(url,searchParams);
             return response
         }catch(error){
             console.log(error);
@@ -21,9 +20,9 @@ export class ServicesService{
         }
     }
 
-    async postSevice(url:string, body:IServicesPost){
+    async postClient(url:string, body:IClientsPost){
         try{
-            const newService = await this.httpClient.post<IServicesPostResponse, IServicesPost>(url,body);
+            const newService = await this.httpClient.post<IClientsPostResponse, IClientsPost>(url,body);
             return newService;
         }catch(error){
             console.log(error);
@@ -32,7 +31,7 @@ export class ServicesService{
         }
     }
 
-    async deleteService(url:string,id:string){
+    async deleteClient(url:string,id:string){
         try{
             const serviceToDelete = await this.httpClient.delete(`${url}/${id}`);
             successAlert('Eliminado exitosamente');
@@ -44,9 +43,9 @@ export class ServicesService{
         }
     }
 
-    async findServiceById (url:string, id:string){
+    async findClientById (url:string, id:string){
         try{
-            const serviceById = await this.httpClient.get<IServicesResponse>(`${url}/${id}`);
+            const serviceById = await this.httpClient.get<IClientsResponse>(`${url}/${id}`);
             return serviceById
         } catch (error){
             console.log(error);
@@ -54,11 +53,11 @@ export class ServicesService{
         }
     }
 
-    async editService (url:string, id:string, body:IServicesPost){
+    async editClient (url:string, id:string, body:IClientsPost){
         try{
-            const serviceEdited =  await this.httpClient.put<IServicesPostResponse,IServicesPost>(`${url}/${id}`, body);
+            const clientEdited =  await this.httpClient.put<IClientsPostResponse,IClientsPost>(`${url}/${id}`, body);
             successAlert('Editado exitosamente');
-            return serviceEdited;
+            return clientEdited;
             
         } catch(error){
             console.log(error);

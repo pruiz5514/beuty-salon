@@ -1,8 +1,8 @@
-import { ServicesService } from "@/app/infrastructure/services/services.service";
-import ServicesTable from "@/components/organisms/Tables/ServicesTable";
+import { ClientsService } from "@/app/infrastructure/services/clients.service";
+import CientsTable from "@/components/organisms/Tables/ClientsTable";
 import FeatureTemplate from "@/components/template/private/FeatureTemplate/FeatureTemplate"
 
-const useServicesService = new ServicesService();
+const useClientsService = new ClientsService();
 
 interface IProps {
   searchParams:{
@@ -17,12 +17,12 @@ export default async function ServicePage({searchParams}:IProps) {
   const size = searchParams.size ? parseInt(searchParams.size) : 8;
   const order = searchParams.order || ''
 
-  const services = await useServicesService.findAllServices(`services?page=${page}&size=${size}`,{order});
+  const clients = await useClientsService.findAllClients(`clients?page=${page}&size=${size}`,{order});
   
   return (
     <main>
-      <FeatureTemplate data={services} title="Servicios" feature="services">
-        <ServicesTable services={services.content}/>
+      <FeatureTemplate data={clients} title='Clientes' feature="clients">
+        <CientsTable clients={clients.content}/>
       </FeatureTemplate>
     </main>
     
