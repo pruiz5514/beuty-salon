@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { HttpClient } from "@/app/infrastructure/utils";
 
-const url = 'https://beautysalongates-production.up.railway.app/api/v1/clients'
+const url = `${process.env.NEXT_PUBLIC_BACK_HOST}/clients`
 
 const useHttpClient = new HttpClient();
 

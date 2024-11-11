@@ -22,8 +22,8 @@ export class HttpClient {
     return this.handleResponse(response);
   }
 
-  async delete<T>(url: string) {
-    const response = await fetch(`${this.baseUrl}/${url}`, {
+  async delete(url: string) {
+    await fetch(`${this.baseUrl}/${url}`, {
       method: "DELETE",
     });
 

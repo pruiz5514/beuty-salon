@@ -1,28 +1,27 @@
 'use client';
 
-import './FormField.scss'
-import Input from "@/components/atoms/Input/Input";
+import '../FormField/FormField.scss'
+import Select from '@/components/atoms/Select/Select';
 import { Control, Controller, FieldError, FieldValues, Path } from "react-hook-form";
 
-interface IPropsFormField<T extends FieldValues> {
+interface IPropsFormFieldSelect<T extends FieldValues> {
     label: string;
-    type: string;
     name: Path<T>;
     control: Control<T>;
     error?: FieldError;
     id?: string;
     placeholder?: string;
+    children: React.ReactNode;
   }
 
-const FormFiled = <T extends FieldValues>({
+const FormFiledSelect = <T extends FieldValues>({
   label,
-  type,
   name,
   control,
   error,
   id,
-  placeholder,
-}: IPropsFormField<T>) => {
+  children
+}: IPropsFormFieldSelect<T>) => {
   return (
     <div className='form_field-container'>
         <label htmlFor={id || label.toLowerCase()}> {label}</label>
@@ -31,13 +30,13 @@ const FormFiled = <T extends FieldValues>({
         name={name}
         control={control}
         render={({ field }) => (
-          <Input
+          <Select
             id={id || label.toLowerCase()}
-            type={type}
             error={error?.message}
-            placeholder={placeholder || `Ingrese su ${label.toLowerCase()}`}
             {...field}
-          />
+          >
+            {children}
+          </Select>
         )}
       />
     </div>
@@ -45,4 +44,4 @@ const FormFiled = <T extends FieldValues>({
   )
 }
 
-export default FormFiled
+export default FormFiledSelect

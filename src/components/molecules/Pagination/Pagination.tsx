@@ -6,9 +6,10 @@ import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 import { useRouter, useSearchParams } from 'next/navigation';
 import { IServicesResponse } from '@/app/core/application/dto/dashboard/services/get-services-response.dto';
 import { IClientsResponse } from '@/app/core/application/dto/dashboard/clients/get-clients-response.dto';
+import { IEmployeesResponse } from '@/app/core/application/dto/dashboard/employees/get-employees-response.dto';
 
 interface IPaginationProps{
-    data: IServicesResponse | IClientsResponse
+    data: IServicesResponse | IClientsResponse | IEmployeesResponse
   }
 
 const Pagination:React.FC<IPaginationProps> = ({data}) => {

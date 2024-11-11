@@ -3,17 +3,20 @@ import { HttpClient } from "../utils";
 import { errorAlert, successAlert } from "../utils/alerts";
 import { IClientsPostResponse } from "@/app/core/application/dto/dashboard/clients/post-clients-response.dto";
 import { IClientsPost } from "@/app/core/application/dto/dashboard/clients/post-clients";
+import { IEmployeesResponse } from "@/app/core/application/dto/dashboard/employees/get-employees-response.dto";
+import { IEmployeesPostResponse } from "@/app/core/application/dto/dashboard/employees/post-employees-response.dto";
+import { IEmployeesPost } from "@/app/core/application/dto/dashboard/employees/post-employees.dto";
 
-export class ClientsService{
+export class EmployeesService{
     private httpClient: HttpClient;
 
     constructor(baseUrl?: string){
         this.httpClient = new HttpClient(baseUrl);
     }
 
-    async findAllClients(url:string, searchParams?: { order: string }){
+    async findAllEmployees(url:string, searchParams?: { order: string }){
         try{
-            const response = this.httpClient.get<IClientsResponse>(url,searchParams);
+            const response = this.httpClient.get<IEmployeesResponse>(url,searchParams);
             return response
         }catch(error){
             console.log(error);
@@ -21,10 +24,10 @@ export class ClientsService{
         }
     }
 
-    async postClient(url:string, body:IClientsPost){
+    async postEmployee(url:string, body:IEmployeesPost){
         try{
-            const newClient = await this.httpClient.post<IClientsPostResponse, IClientsPost>(url,body);
-            return newClient;
+            const newEmployee = await this.httpClient.post<IEmployeesPostResponse, IEmployeesPost>(url,body);
+            return newEmployee;
         }catch(error){
             console.log(error);
             errorAlert("No se pudo crear el servicio, intente luego")
@@ -32,11 +35,11 @@ export class ClientsService{
         }
     }
 
-    async deleteClient(url:string,id:string){
+    async deleteEmployee(url:string,id:string){
         try{
-            const clientToDelete = await this.httpClient.delete(`${url}/${id}`);
+            const employeeToDelete = await this.httpClient.delete(`${url}/${id}`);
             successAlert('Eliminado exitosamente');
-            return clientToDelete;
+            return employeeToDelete;
         } catch(error){
             console.log(error);
             errorAlert('No se pudo eleminar')
@@ -44,21 +47,21 @@ export class ClientsService{
         }
     }
 
-    async findClientById (url:string, id:string){
+    async findEmployeeById (url:string, id:string){
         try{
-            const clientById = await this.httpClient.get<IClientsResponse>(`${url}/${id}`);
-            return clientById
+            const employeeById = await this.httpClient.get<IClientsResponse>(`${url}/${id}`);
+            return employeeById
         } catch (error){
             console.log(error);
             throw error
         }
     }
 
-    async editClient (url:string, id:string, body:IClientsPost){
+    async editEmployee (url:string, id:string, body:IClientsPost){
         try{
-            const clientEdited =  await this.httpClient.put<IClientsPostResponse,IClientsPost>(`${url}/${id}`, body);
+            const employeeEdited =  await this.httpClient.put<IClientsPostResponse,IClientsPost>(`${url}/${id}`, body);
             successAlert('Editado exitosamente');
-            return clientEdited;
+            return employeeEdited;
             
         } catch(error){
             console.log(error);

@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Select from '@/components/atoms/Select/Select';
 import { useRouter, useSearchParams } from 'next/navigation';
 import CLientsForm from '@/components/organisms/Forms/ClientsForm';
+import EmployeesForm from '@/components/organisms/Forms/EmployeesForm';
 
 
 interface IHeaderFeature {
@@ -42,6 +43,11 @@ const HeaderFeature: React.FC<IHeaderFeature> = ({feature}) => {
       return {
         buttonFeature : 'cliente',
         form: <CLientsForm action='add' propFunction={handleCloseModal}/>
+      }
+    }else if (feature === 'employees'){
+      return {
+        buttonFeature : 'empleado',
+        form: <EmployeesForm action='add' propFunction={handleCloseModal}/>
       }
     }
 

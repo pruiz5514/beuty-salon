@@ -14,7 +14,7 @@ const Aside: React.FC<IAsideProps> = ({functionProps}) => {
             <li><a href="/dashboard/services">Servicios</a></li>
             <li><a href="">Citas</a></li>
             <li><a href="/dashboard/clients">Clientes</a></li>
-            <li><a href="">Empleados</a></li>
+            <li><a href="/dashboard/employees">Empleados</a></li>
             <li><Button>Cerrar sesión</Button></li>
         </ul>
     </aside>

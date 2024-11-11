@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { HttpClient } from "@/app/infrastructure/utils";
 
-const url = `${process.env.NEXT_PUBLIC_BACK_HOST}/services`
+const url = `${process.env.NEXT_PUBLIC_BACK_HOST}/employees`
 
 const useHttpClient = new HttpClient();
 

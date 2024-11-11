@@ -1,6 +1,7 @@
 "use client";
 
 import { IClientsContent } from '@/app/core/application/dto/dashboard/clients/get-clients-response.dto';
+import { IClientsPost } from '@/app/core/application/dto/dashboard/clients/post-clients';
 import { ClientsService } from '@/app/infrastructure/services/clients.service';
 import { successAlert } from '@/app/infrastructure/utils/alerts';
 import Button from '@/components/atoms/Button/Button'

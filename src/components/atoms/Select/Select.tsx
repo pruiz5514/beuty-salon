@@ -5,7 +5,8 @@ interface SelectProps{
     id?: string;
     name?:string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-    value?: string
+    value?: string;
+    error?:  string;
 }
 
 
