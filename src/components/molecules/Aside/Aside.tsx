@@ -1,6 +1,8 @@
+'use client'
 import './Aside.scss';
 import Button from '@/components/atoms/Button/Button'
 import { IoClose } from 'react-icons/io5'
+import { signOut } from "next-auth/react"
 
 interface IAsideProps{
     functionProps?: ()=> void
@@ -15,7 +17,7 @@ const Aside: React.FC<IAsideProps> = ({functionProps}) => {
             <li><a href="/dashboard/appointments">Citas</a></li>
             <li><a href="/dashboard/clients">Clientes</a></li>
             <li><a href="/dashboard/employees">Empleados</a></li>
-            <li><Button>Cerrar sesión</Button></li>
+            <li><Button onClick={()=> signOut()}>Cerrar sesión</Button></li>
         </ul>
     </aside>
   )

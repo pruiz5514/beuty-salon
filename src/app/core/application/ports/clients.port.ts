@@ -6,7 +6,7 @@ export interface PClients {
    * Get all clients
    * @returns {Promise<IClientsResponse>} - Get all clients response
    */
-    findAllClients(url: String): Promise<IClientsResponse>
+    findAllClients(url: string): Promise<IClientsResponse>
 
      /**
    * Post a clients

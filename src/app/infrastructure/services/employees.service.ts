@@ -1,8 +1,5 @@
-import { IClientsResponse } from "@/app/core/application/dto/dashboard/clients/get-clients-response.dto";
 import { HttpClient } from "../utils";
 import { errorAlert, successAlert } from "../utils/alerts";
-import { IClientsPostResponse } from "@/app/core/application/dto/dashboard/clients/post-clients-response.dto";
-import { IClientsPost } from "@/app/core/application/dto/dashboard/clients/post-clients";
 import { IEmployeesResponse } from "@/app/core/application/dto/dashboard/employees/get-employees-response.dto";
 import { IEmployeesPostResponse } from "@/app/core/application/dto/dashboard/employees/post-employees-response.dto";
 import { IEmployeesPost } from "@/app/core/application/dto/dashboard/employees/post-employees.dto";

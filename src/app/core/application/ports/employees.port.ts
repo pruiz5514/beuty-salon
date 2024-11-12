@@ -6,7 +6,7 @@ export interface PEmployees {
    * Get all employees
    * @returns {Promise<IEmployeesResponse>} - Get all employees response
    */
-    findAllEmployees(url: String): Promise<IEmployeesResponse>
+    findAllEmployees(url: string): Promise<IEmployeesResponse>
 
      /**
    * Post an employee

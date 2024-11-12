@@ -18,7 +18,7 @@ export interface IClientsContent {
     lastName:     string;
     phone:        string;
     email:        string;
-    appointments: any[];
+    appointments: unknown[];
 }
 
 export interface Pageable {

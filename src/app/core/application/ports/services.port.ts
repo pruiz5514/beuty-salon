@@ -6,7 +6,7 @@ export interface PServices {
    * Get all services
    * @returns {Promise<IServicesResponse>} - Get all services response
    */
-    findAllServices(url: String): Promise<IServicesResponse>
+    findAllServices(url: string): Promise<IServicesResponse>
 
      /**
    * Post a service
