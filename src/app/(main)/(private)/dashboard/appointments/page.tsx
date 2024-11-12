@@ -12,7 +12,7 @@ import FeatureTemplate from "@/components/template/private/FeatureTemplate/Featu
 //   }
 // }
 
-export default async function AppointmentsPage({searchParams}:IProps) {
+export default async function AppointmentsPage() {
 //   const page = searchParams.page ? parseInt(searchParams.page) : 1;
 //   const size = searchParams.size ? parseInt(searchParams.size) : 8;
 //   const order = searchParams.order || ''
