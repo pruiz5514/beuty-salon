@@ -12,7 +12,7 @@ const Aside: React.FC<IAsideProps> = ({functionProps}) => {
         <button className='close-aside' onClick={functionProps}><IoClose /></button>
         <ul className='list-aside'>
             <li><a href="/dashboard/services">Servicios</a></li>
-            <li><a href="">Citas</a></li>
+            <li><a href="/dashboard/appointments">Citas</a></li>
             <li><a href="/dashboard/clients">Clientes</a></li>
             <li><a href="/dashboard/employees">Empleados</a></li>
             <li><Button>Cerrar sesión</Button></li>

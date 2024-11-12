@@ -3,8 +3,9 @@ import { HttpClient } from "../utils";
 import { IServicesPost } from "@/app/core/application/dto/dashboard/services/post-services.dto";
 import { IServicesPostResponse } from "@/app/core/application/dto/dashboard/services/post-services-response.dto";
 import { errorAlert, successAlert } from "../utils/alerts";
+import { PServices } from "@/app/core/application/ports/services.port";
 
-export class ServicesService{
+export class ServicesService implements PServices{
     private httpClient: HttpClient;
 
     constructor(baseUrl?: string){
@@ -59,11 +60,11 @@ export class ServicesService{
             const serviceEdited =  await this.httpClient.put<IServicesPostResponse,IServicesPost>(`${url}/${id}`, body);
             successAlert('Editado exitosamente');
             return serviceEdited;
-            
+
         } catch(error){
             console.log(error);
             throw error;
-            
+
         }
     }
 }

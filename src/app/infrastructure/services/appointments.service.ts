@@ -3,16 +3,15 @@ import { HttpClient } from "../utils";
 import { errorAlert, successAlert } from "../utils/alerts";
 import { IClientsPostResponse } from "@/app/core/application/dto/dashboard/clients/post-clients-response.dto";
 import { IClientsPost } from "@/app/core/application/dto/dashboard/clients/post-clients";
-import { PClients } from "@/app/core/application/ports/clients.port";
 
-export class ClientsService implements PClients{
+export class AppointmentsService{
     private httpClient: HttpClient;
 
     constructor(baseUrl?: string){
         this.httpClient = new HttpClient(baseUrl);
     }
 
-    async findAllClients(url:string, searchParams?: { order: string }){
+    async findAllAppointments(url:string, searchParams?: { order: string }){
         try{
             const response = this.httpClient.get<IClientsResponse>(url,searchParams);
             return response

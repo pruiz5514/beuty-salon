@@ -6,8 +6,9 @@ import { IClientsPost } from "@/app/core/application/dto/dashboard/clients/post-
 import { IEmployeesResponse } from "@/app/core/application/dto/dashboard/employees/get-employees-response.dto";
 import { IEmployeesPostResponse } from "@/app/core/application/dto/dashboard/employees/post-employees-response.dto";
 import { IEmployeesPost } from "@/app/core/application/dto/dashboard/employees/post-employees.dto";
+import { PEmployees } from "@/app/core/application/ports/employees.port";
 
-export class EmployeesService{
+export class EmployeesService implements PEmployees{
     private httpClient: HttpClient;
 
     constructor(baseUrl?: string){
@@ -49,7 +50,7 @@ export class EmployeesService{
 
     async findEmployeeById (url:string, id:string){
         try{
-            const employeeById = await this.httpClient.get<IClientsResponse>(`${url}/${id}`);
+            const employeeById = await this.httpClient.get<IEmployeesResponse>(`${url}/${id}`);
             return employeeById
         } catch (error){
             console.log(error);
@@ -57,9 +58,9 @@ export class EmployeesService{
         }
     }
 
-    async editEmployee (url:string, id:string, body:IClientsPost){
+    async editEmployee (url:string, id:string, body:IEmployeesPost){
         try{
-            const employeeEdited =  await this.httpClient.put<IClientsPostResponse,IClientsPost>(`${url}/${id}`, body);
+            const employeeEdited =  await this.httpClient.put<IEmployeesPostResponse,IEmployeesPost>(`${url}/${id}`, body);
             successAlert('Editado exitosamente');
             return employeeEdited;
             
