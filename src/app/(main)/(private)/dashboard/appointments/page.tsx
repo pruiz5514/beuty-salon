@@ -1,7 +1,3 @@
-import { EmployeesService } from "@/app/infrastructure/services/employees.service";
-import EmployeesTable from "@/components/organisms/Tables/EmployeesTable";
-import FeatureTemplate from "@/components/template/private/FeatureTemplate/FeatureTemplate"
-
 // const useAppointmentsService = new AppointmentsService();
 
 // interface IProps {
