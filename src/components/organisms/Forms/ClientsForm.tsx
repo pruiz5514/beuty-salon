@@ -13,7 +13,7 @@ import FormFiled from '@/components/molecules/common/FormField/FormFiled'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 
@@ -53,7 +53,7 @@ const ClientsForm:React.FC<IClientsForm> = ({action, clientSelected, propFunctio
   } = useForm<IClientsPost>({
     mode: "onChange",
     reValidateMode: "onChange",
-    resolver: yupResolver(clientsSchema),
+    resolver: yupResolver(clientsSchema) as unknown as Resolver<IClientsPost>,
     defaultValues: clientSelected
   })
 

@@ -13,7 +13,7 @@ import FormFiledSelect from '@/components/molecules/common/FormFieldSelect/FormF
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 
@@ -56,7 +56,7 @@ const EmployeesForm:React.FC<IEmployeesForm> = ({action, employeeSelected, propF
   } = useForm<IEmployeesPost>({
     mode: "onChange",
     reValidateMode: "onChange",
-    resolver: yupResolver(clientsSchema),
+    resolver: yupResolver(clientsSchema) as unknown as Resolver<IEmployeesPost>,
     defaultValues: employeeSelected
   })
 

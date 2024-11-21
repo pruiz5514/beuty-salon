@@ -13,7 +13,7 @@ import FormFiled from '@/components/molecules/common/FormField/FormFiled'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import {Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 
@@ -48,7 +48,7 @@ const ServicesForm:React.FC<IServicesForm> = ({action, serviceSelected, propFunc
   } = useForm<IServicesPost>({
     mode: "onChange",
     reValidateMode: "onChange",
-    resolver: yupResolver(servicesSchema),
+    resolver: yupResolver(servicesSchema) as unknown as Resolver<IServicesPost>,
     defaultValues: serviceSelected
   })
 

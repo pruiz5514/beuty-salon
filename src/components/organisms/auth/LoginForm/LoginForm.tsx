@@ -8,19 +8,17 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { Resolver, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
-const logiSchema = yup.object()
+const loginSchema = yup.object()
     .shape({
         userName: yup
-            .string()
-            .email('El correo es inválido')
+            .string().email('El correo es inválido')
             .required('El correo es obligatorio'),
         password: yup
-            .string()
-            .min(8, 'La contraseña debe tener al menos 8 caracteres')
-            .required('La contreseña es obligatoria')
+            .string().min(8, 'La contraseña debe tener al menos 8 caracteres')
+            .required('La contreseña es obligatoria'),
     })
 
 export const LoginForm = () => {
@@ -32,7 +30,7 @@ export const LoginForm = () => {
   } = useForm<ILoginRequest>({
     mode: "onChange",
     reValidateMode: "onChange",
-    resolver : yupResolver(logiSchema)
+    resolver : yupResolver(loginSchema) as unknown as Resolver<ILoginRequest>
   })
 
   const router = useRouter();

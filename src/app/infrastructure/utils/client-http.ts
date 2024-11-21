@@ -1,6 +1,6 @@
 
-import { PATCH } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import { authOptions } from "./nextAuthConfing";
 
 const defaultBaseUrl = process.env.NEXT_PUBLIC_BACK_HOST ?? '';
 
@@ -52,7 +52,7 @@ export class HttpClient {
   }
 
   async getHeader({searchParams}: {searchParams?: {order:string}}={}) {
-    const session = await getServerSession(PATCH);
+    const session = await getServerSession(authOptions);
 
 
     const headers:HeadersInit = {

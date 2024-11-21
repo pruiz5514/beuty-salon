@@ -84,4 +84,3 @@ const authOptions: NextAuthOptions = {
 
 export const GET = NextAuth(authOptions);
 export const POST = NextAuth(authOptions);
-export const PATCH = authOptions;
