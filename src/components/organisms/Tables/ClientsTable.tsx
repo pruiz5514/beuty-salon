@@ -26,7 +26,7 @@ const CientsTable:React.FC<IClientsTable> = ({clients}) => {
                     <Th>Apellido</Th>
                     <Th>teléfono</Th>
                     <Th>Email</Th>
-                    <Th>Citas</Th>
+                    {/* <Th>Citas</Th> */}
                     <Th>Acciones</Th>
             </Tr>
             </Thead>
@@ -38,7 +38,7 @@ const CientsTable:React.FC<IClientsTable> = ({clients}) => {
                         <Td>{client.lastName}</Td>
                         <Td>{client.phone}</Td>
                         <Td>{client.email}</Td>
-                        <Td>{client.appointments}</Td>
+                        {/* <Td>{client.appointments}</Td> */}
                         <Td> <TdActions feature='clients' data={client}/> </Td>
                     </Tr>
                 ))}
