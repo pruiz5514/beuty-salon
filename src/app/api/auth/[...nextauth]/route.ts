@@ -82,5 +82,6 @@ const authOptions: NextAuthOptions = {
   },
 };
 
-const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST, authOptions as PATCH };
+export const GET = NextAuth(authOptions);
+export const POST = NextAuth(authOptions);
+export const PATCH = authOptions;
