@@ -29,11 +29,11 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## ENV example
 
-NEXTAUTH_URL 
-NEXTAUTH_SECRET 
-NEXT_PUBLIC_BACK_HOST 
-NEXT_PUBLIC_FRONT_HOST 
+- NEXTAUTH_URL 
+- NEXTAUTH_SECRET 
+- NEXT_PUBLIC_BACK_HOST 
+- NEXT_PUBLIC_FRONT_HOST 
 
 ## Credential: 
-email: k@gmail.com
-password: 12345678
+- email: k@gmail.com
+- password: 12345678
